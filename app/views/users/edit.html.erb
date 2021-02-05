@@ -1,0 +1,14 @@
+<h1>User info</h1>
+
+<%= form_with model:@user, local:true do |f| %>
+
+  <p>Name</p>
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
+  <p>Image</p>
+   <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"%>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
+  <p>Introduction</p>
+  <%= f.text_area :introduction %>
+  <%= f.submit "Update User" :<i class="fas fa-user-edit"></i> %>
+
+<% end %>
