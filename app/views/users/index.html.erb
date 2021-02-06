@@ -1,14 +1,12 @@
-<h1>User info</h1>
+<h1>Users</h1>
 
-<div class="profile-container">
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <tr>
 
-    <h4>name</h4>
-    <div><%= @user.name %></div>
-    <h4>introduction</h4>
-    <div><%= @user.introduction %></div>
-
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
-
-</div>
+  </tr>
+</table>
