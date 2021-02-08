@@ -1,3 +1,7 @@
+<!--サクセス・エラーメッセージ-->
+<%= render 'devise/shared/message' %>
+<!---->
+
 <h1>User info</h1>
 
 <%= form_with model:@user, local:true do |f| %>
@@ -9,6 +13,6 @@
   <%= f.attachment_field :profile_image, placeholder: "プロフィール画像" %>
   <p>Introduction</p>
   <%= f.text_area :introduction %>
-  <%= f.submit "Update User" %>
-  
+  <p><%= f.submit "Update User" %></p>
+
 <% end %>

@@ -1,3 +1,7 @@
+<!--サクセス・エラーメッセージ-->
+<%= render 'devise/shared/message' %>
+<!---->
+
 <!--部分テンプレート-->
 <%= render 'devise/shared/left', user:@user, book:@book %>
 <!---->
@@ -7,10 +11,10 @@
 <table>
   <tr>
     <td>
-      <%= attachment_image_tag user, :profile_image, :fill, 60, 60, format:'jpeg', fallback: "no_image.jpg" %>
-      <&= user.name %>
+      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg', fallback: "no_image.jpg" %>
+      <%= link_to @user.name, user_path(@user.id) %>
     </td>
-    <td><%= book.title %></td>
-    <td><%= book.body %></td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
    </tr>
 </table>
