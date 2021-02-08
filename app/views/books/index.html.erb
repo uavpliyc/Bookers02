@@ -2,9 +2,17 @@
 <%= render 'devise/shared/message' %>
 <!---->
 
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+
 <!--部分テンプレート-->
 <%= render 'devise/shared/left', user:@user, book:@book %>
 <!---->
+
+    </div>
+<div class="col-md-8">
+
 <h1>Books</h1>
 
 <table>
@@ -25,3 +33,7 @@
   </tr>
   <% end %>
 </table>
+
+ </div>
+ </div>
+</div>
