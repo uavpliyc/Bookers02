@@ -1,3 +1,7 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+
 <h1>Editing book</h1>
 
 <%= form_with model:@book, local:true do |f| %>
@@ -6,8 +10,12 @@
 <%= f.text_field :title, id:"inputTitle", placeholder:"タイトル" %>
 <p>Opinion</p>
 <%= f.text_area :body %>
-<%= f.submit "Update Book" %>
+<p><button type="submit" class="btn btn-success btn-sm">Update Book</button></p>
 <p><%= link_to "Show", book_path %> |
    <%= link_to "Back", books_path %></p>
 
 <% end %>
+
+    </div>
+  </div>
+</div>
