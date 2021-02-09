@@ -13,7 +13,9 @@ class BooksController < ApplicationController
       redirect_to books_path(@book.id)
     else
       flash[:alert] = "Book create error"
-      render :new
+      @books = Book.all
+      @user = User.find(current_user.id)
+      render :index
     end
   end
 
