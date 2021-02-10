@@ -7,7 +7,7 @@
     <div class="col-md-3">
 
 <!--部分テンプレート-->
-<%= render 'devise/shared/left', user:@user, book:@book %>
+<%= render 'devise/shared/left', user:@user, book: Book.new %>
 <!---->
 
     </div>
@@ -18,13 +18,15 @@
 <table class="table">
   <tr>
     <td>
-      <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format:'jpeg', fallback: "no_image.jpg" %>
-      <p><%= link_to @user.name, user_path(@user.id) %></p>
+      <%= attachment_image_tag @book_detail.user, :profile_image, :fill, 60, 60, format:'jpeg', fallback: "no_image.jpg" %>
+      <p><%= link_to @book_detail.user.name, user_path(@book_detail.user.id) %></p>
     </td>
-    <td><%= @book.title %></td>
-    <td><%= @book.body %></td>
-    <td><button type="button" class="btn btn-success btn-sm"><%= link_to 'Edit',edit_book_path(@book.id), :style=>"color:#fff;" %></button></td>
-    <td><button type="button" class="btn btn-danger btn-sm"><%= link_to 'Destroy',book_path, method: :delete, "data-confirm" => "本当に削しますか？", :style=>"color:#fff;" %></button></td>
+    <td><%= @book_detail.title %></td>
+    <td><%= @book_detail.body %></td>
+    <% if @book_detail.user == current_user %>
+      <td><button type="button" class="btn btn-success btn-sm"><%= link_to 'Edit',edit_book_path(@book_detail), :style=>"color:#fff;" %></button></td>
+      <td><button type="button" class="btn btn-danger btn-sm"><%= link_to 'Destroy',@book, method: :delete, "data-confirm" => "本当に削しますか？", :style=>"color:#fff;" %></button></td>
+    <% end %>
    </tr>
 </table>
 

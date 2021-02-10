@@ -11,7 +11,7 @@ before_action :authenticate_user! , only: [:show, :new, :edit, :index, :new]
     @book.user_id = current_user.id
     if @book.save
       flash[:notice] = "Book create successfully!"
-      redirect_to book_path(@book.id)
+      redirect_to @book
     else
       flash[:alert] = "Book create error"
       @books = Book.all
@@ -28,12 +28,14 @@ before_action :authenticate_user! , only: [:show, :new, :edit, :index, :new]
   end
 
   def show
+    @book_detail = Book.find(params[:id])
     @book = Book.find(params[:id])
-    @user = User.find_by(id: @book.user)
+    @user = User.find(@book_detail.user_id)
   end
 
   def edit
     @book = Book.find(params[:id])
+    redirect_to books_path unless @book.user_id == current_user.id
   end
 
   def update
