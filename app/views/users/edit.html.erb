@@ -1,5 +1,13 @@
 <!--サクセス・エラーメッセージ-->
 <%= render 'devise/shared/message' %>
+<% if @user.errors.any? %>
+  <h3><%= @user.errors.count %>error occurrence</h3>
+	<ul>
+	 <% @user.errors.full_messages.each do |message| %>
+	    <li><%= message %></li>
+	 <% end %>
+	</ul>
+<% end %>
 <!---->
 
 <div class="container">
@@ -26,3 +34,4 @@
     </div>
   </div>
 </div>
+

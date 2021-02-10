@@ -1,3 +1,9 @@
+    <% if @book.errors.any? %>
+      <% book.errors.full_messages.each do |message| %>
+        <p>error</p>
+        <span><%= message %></span>
+      <% end %>
+    <% end %>
 
       <!--ユーザ情報-->
       <h1>User info</h1>
@@ -18,7 +24,9 @@
           </table>
 
         <% if @user.id == current_user.id %>
-          <button type="button" class="btn btn-outline-secondary btn-sm"><%= link_to "プロフィール編集", edit_user_path(@user) %></button>
+           <%= link_to edit_user_path(@user), class:"btn btn-outline-secondary w-50 p-0" do %>
+           <i class="fas fa-user-cog"></i>
+           <% end %>
         <% end %>
 
       </div>
@@ -35,5 +43,5 @@
           <lavel>Opinion</lavel><br>
           <%= f.text_area :body %>
         </div>
-        <P><button type="submit" class="btn btn-success">Create Book</button></p>
+        <p><button type="submit" class="btn btn-success">Create Book</button></p>
       <% end %>

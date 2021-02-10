@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :authenticate_user! , only: [:show, :new, :index, :edit]
 
     def index
       @users = User.all
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
       @book = Book.new
+      @books = Book.all
     end
 
     def edit

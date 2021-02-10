@@ -9,8 +9,8 @@
 			<p>you can share and exchange your opinions , inpressions , and emotions</p>
 			<p>about various books!</p>
 			<div class="btn-wrapper col-10 mx-auto">
-				<button type="button" class="btn btn-primary btn-lg btn-block"><%= link_to "Log in", user_session_path, :style=>"color:#fff;" %></button><br>
-				<button type="button" class="btn btn-secondary btn-lg btn-block btn-success"><%= link_to "Sign up", new_user_registration_path, :style=>"color:#fff;" %></button>
+				<%= link_to "Log in", user_session_path, :style=>"color:#fff;", class:"btn btn-primary btn-lg btn-block" %><br>
+				<%= link_to "Sign up", new_user_registration_path, :style=>"color:#fff;", class:"btn btn-secondary btn-lg btn-block btn-success" %>
 		  </div>
 		</div>
 	</div>
